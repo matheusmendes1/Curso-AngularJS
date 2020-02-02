@@ -10,8 +10,10 @@
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
 
         <script src="js/lib/angular.min.js"></script>
+
         <script src="js/main.js"></script>
         <script src="js/controllers/fotos-controller.js"></script>
+        <script src="js/directives/minhas-diretivas.js"></script>
     </head>
 
     <body ng-controller="FotosController">
@@ -20,6 +22,10 @@
                 <h1 class="text-center">Alurapic</h1>
             </div>
 
+            <meu-painel ng-repeat="foto in fotos" titulo="{{foto.titulo}}">
+                <img class="img-responsive center-block" src="{{foto.url}}" alt="{{foto.titulo}}">
+            </meu-painel>
+            <!-- 
             <div class="panel panel-default" ng-repeat="foto in fotos">
                 <div class="panel-heading">
                     <h3 class="text-center panel-title">{{foto.titulo}}</h3>
@@ -29,7 +35,7 @@
                     <img class="img-responsive center-block" src="{{foto.url}}" alt="{{foto.titulo}}">
                 </div>
             </div>
-
+            -->
         </div> <!-- fim container -->        
     </body>
 </html>
@@ -45,3 +51,11 @@
 <!-- Angular não é uma solução que se coaduna com a prática de Progressive Enhancement no que diz respeito a criação de páginas web. -->
 
 <!-- Esse sistema de "pedirmos" ao Angular o que precisamos é chamado de injeção de dependências. Nós gritamos "eu preciso de um $http!" e o framework se vira para nos entregar um. -->
+
+<!-- 
+    Angular fornece um serviço exclusivo para realização de requisição Ajax, o $http.Vejamos algumas afirmativas sobre este serviço:
+        Pode ser injetado como qualquer outro artefato do Angular
+        Possui a função .get, que recebe como parâmetro um endereço, inclusive é especializada na leitura de dados.
+        A função .get retorna uma promise.
+        Podemos usar .then e .catch para obter os dados e capturar erros respectivamente ou .success e .error, açúcares sintáticos com a mesma finalidade.
+-->
