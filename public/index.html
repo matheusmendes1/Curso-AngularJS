@@ -16,9 +16,20 @@
 
     <body ng-controller="FotosController">
         <div class="container">
-            <h1 class="text-center">Alurapic</h1>
+            <div class="jumbotron">
+                <h1 class="text-center">Alurapic</h1>
+            </div>
 
-            <img class="img-responsive center-block" src="{{foto.url}}" alt="{{foto.titulo}}">
+            <div class="panel panel-default" ng-repeat="foto in fotos">
+                <div class="panel-heading">
+                    <h3 class="text-center panel-title">{{foto.titulo}}</h3>
+                </div>
+
+                <div class="panel-body">
+                    <img class="img-responsive center-block" src="{{foto.url}}" alt="{{foto.titulo}}">
+                </div>
+            </div>
+
         </div> <!-- fim container -->        
     </body>
 </html>
@@ -32,3 +43,5 @@
 <!-- Uma Angular Expression (AE) é somente leitura, isto é, alterações dos dados na view não se propaga para o model. -->
 <!-- Um model no Angular pode ser um objeto ou qualquer tipo literal do JavaScript, como String ou Boolean. -->
 <!-- Angular não é uma solução que se coaduna com a prática de Progressive Enhancement no que diz respeito a criação de páginas web. -->
+
+<!-- Esse sistema de "pedirmos" ao Angular o que precisamos é chamado de injeção de dependências. Nós gritamos "eu preciso de um $http!" e o framework se vira para nos entregar um. -->
