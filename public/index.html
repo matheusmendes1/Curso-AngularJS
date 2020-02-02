@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="alurapic">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+
+        <title>Alurapic</title>
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+
+        <script src="js/lib/angular.min.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/controllers/fotos-controller.js"></script>
+    </head>
+
+    <body ng-controller="FotosController">
+        <div class="container">
+            <h1 class="text-center">Alurapic</h1>
+
+            <img class="img-responsive center-block" src="{{foto.url}}" alt="{{foto.titulo}}">
+        </div> <!-- fim container -->        
+    </body>
+</html>
+
+<!-- Não usar o termo página, usar o termo VIEW para se referir as páginas -->
+<!-- {{ }} significa abrir um template, uma lacuna. Alguém precisa passar dados para minha view. Seu termo técnico é ANGULAR EXPRESSION -->
+<!-- É uma boa prática criar módulos em arquivos separados -->
+<!-- Diretivas ampliam o vocabulário do navegador, ensinando-o novos truques, inclusive aprenderemos a criar nossas próprias diretivas ao longo do treinamento. exemplo de diretiva: ng-controller -->
+
+<!-- Data binding significa associação de dado, isto é, podemos associar um dado à view através de Angular Expression e qualquer mudança nesse dado refletirá na sua apresentação na view. -->
+<!-- Uma Angular Expression (AE) é somente leitura, isto é, alterações dos dados na view não se propaga para o model. -->
+<!-- Um model no Angular pode ser um objeto ou qualquer tipo literal do JavaScript, como String ou Boolean. -->
+<!-- Angular não é uma solução que se coaduna com a prática de Progressive Enhancement no que diz respeito a criação de páginas web. -->
