@@ -24,7 +24,8 @@ angular
 
         $routeProvider
             .when('/fotos/new', {
-                templateUrl: 'partials/foto.html'
+                templateUrl: 'partials/foto.html',
+                controller: 'FotoController'
             });    
 
         /* Caso o user digite uma rota inexistente */
