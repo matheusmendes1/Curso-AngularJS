@@ -3,7 +3,6 @@ angular
     .directive('meuPainel', function() {
 
         let ddo = {};
-        
         ddo.restrict = 'AE';
 
         ddo.scope = {
@@ -13,15 +12,13 @@ angular
 
         ddo.transclude = true;
 
-
         ddo.templateUrl = 'js/directives/meu-painel.html';
 
         return ddo;
     })
     .directive('minhaFoto', function() {
 
-        var ddo = {};
-
+        let ddo = {};
         ddo.restrict = "AE";
 
         ddo.scope = {

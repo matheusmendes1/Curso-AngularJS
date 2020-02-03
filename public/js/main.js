@@ -27,6 +27,7 @@ angular
                 templateUrl: 'partials/foto.html'
             });    
 
+        /* Caso o user digite uma rota inexistente */
         $routeProvider
             .otherwise({ redirectTo: '/fotos' });   
     });

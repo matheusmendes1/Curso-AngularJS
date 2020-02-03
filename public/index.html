@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width">
 
         <base href="/">
-        
+
         <title>Alurapic</title>
 
         <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -46,4 +46,12 @@
         Possui a função .get, que recebe como parâmetro um endereço, inclusive é especializada na leitura de dados.
         A função .get retorna uma promise.
         Podemos usar .then e .catch para obter os dados e capturar erros respectivamente ou .success e .error, açúcares sintáticos com a mesma finalidade.
+-->
+
+<!--
+    Sobre a configuração de rotas no lado do cliente Angular:
+        Precisamos importar o módulo ngRoute para que consigamos configurar rotas.
+        O artefato $routeProvider é um artefato injetável dependente do carregamento do módulo de rotas.
+        Rotas podem ser configuradas sem a necessidade de pertencerem a um módulo.
+        Para configurarmos uma rota, precisamos fornecer no mínimo o nome da rota e qual parcial será carregada.
 -->
