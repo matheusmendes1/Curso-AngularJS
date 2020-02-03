@@ -29,6 +29,21 @@ angular
         ddo.template = '<img class="img-responsive center-block" ng-src="{{url}}" alt="{{titulo}}">';    
 
         return ddo;
+    })
+    .directive('meuBotaoPerigo', function() {
+
+        let ddo = {};
+
+        ddo.restrict = "E";
+
+        ddo.scope = {
+            nome: '@',
+            acao : '&'
+        }
+
+        ddo.template = '<button class="btn btn-danger btn-block" ng-click="acao()" style="margin-top: 1rem;">{{nome}}</button>';
+
+        return ddo;
     });
 
 /* ddo = direct directive object */
