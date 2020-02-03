@@ -22,7 +22,6 @@ angular
     */
 
     $scope.remover = (foto) => {
-
         recursoFotos.delete(
             {fotoId : foto._id},
             () => {
@@ -36,12 +35,5 @@ angular
                 $scope.mensagem = `Não foi possível remover a foto: ${foto.titulo}`; 
             }
         );
-
-        /*
-        $http
-            .delete(`v1/fotos/${foto._id}`)
-            .success( () => { })
-            .error( (erro) => { })
-        */
     };
 });

@@ -74,3 +74,20 @@
     Uma das grandes vantagens de se utilizar o $resource é que ele provê um alto nível de abstração em relação ao seu similar $http, 
     facilitando quando estamos trabalhando com um back-end RESTful. 
 -->
+
+<!--
+    Usamos @ quando queremos realizar uma cópia do valor passado para a diretiva no HTML para dentro do escopo isolado na diretiva. Essa cópia é sempre um valor em string.
+
+    Usamos & geralmente quando queremos executar dentro de uma diretiva uma função que pertence a um escopo pai, o de um controller.
+
+    Usamos = quando queremos que tanto a diretiva quanto o controller acessem o mesmo dado, isto é, 
+    qualquer alteração no escopo privado da diretiva afetará a propriedade do controller e 
+    qualquer alteração nesta propriedade no controller afetará a diretiva. Temos aqui uma comunicação bidirecional.
+-->
+
+<!--
+    Segue algumas afirmações sobre a manipulação de DOM no Angular:
+    Deve ser realizada em diretivas, pois o código que manipula o DOM ficará separado 
+    do código de um controller ou de um serviço. Como nem o controller nem o serviço manipulam DOM, 
+    tornam-se mais fáceis de compreender e de testar em seu framework de teste favorito.
+-->

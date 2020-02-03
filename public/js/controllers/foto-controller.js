@@ -6,7 +6,6 @@ angular
         $scope.mensagem = '';
 
         if($routeParams.fotoId) {
-
             recursoFotos.get(
                 {fotoId: $routeParams.fotoId}, 
             (foto) => {
@@ -19,9 +18,7 @@ angular
         }
 
         $scope.submeter = () => {
-
             if($scope.formulario.$valid){
-
                 cadastroDeFotos
                     .cadastrar($scope.foto)
                     .then( (dados) => {
@@ -32,6 +29,5 @@ angular
                         $scope.mensagem = dados.mensagem;
                     })
             }
-
         }
     });

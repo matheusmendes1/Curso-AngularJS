@@ -13,19 +13,20 @@ angular
         );
 
     })
-    .factory('cadastroDeFotos', function(recursoFotos, $q) {
+    .factory('cadastroDeFotos', function(recursoFotos, $q, $rootScope) {
 
         let servico = {};
 
+        const evento = 'fotoCadastrada';
+
         servico.cadastrar = (foto) => {
             return $q( (resolve, reject) => {
-
                 if(foto._id){
-
                     recursoFotos.update(
                         {fotoId: foto._id},
                         foto,
                         () => {
+                            $rootScope.$broadcast(evento);
                             resolve({
                                 mensagem: `Foto ${foto.titulo} atualizada com sucesso`,
                                 inclusao: false
@@ -39,10 +40,10 @@ angular
                         }
                     )
                 }else{
-
                     recursoFotos.save(
                         foto,
                         () => {
+                            $rootScope.$broadcast(evento);
                             resolve({
                                 mensagem: `Foto ${foto.titulo} foi incluida com sucesso`,
                                 inclusao: true
@@ -56,7 +57,6 @@ angular
                         }
                     )
                 }
-
             });
         };
 
