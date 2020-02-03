@@ -18,6 +18,21 @@ angular
 
         return ddo;
     })
+    .directive('minhaFoto', function() {
+
+        var ddo = {};
+
+        ddo.restrict = "AE";
+
+        ddo.scope = {
+            titulo: '@',
+            url: '@'
+        };
+
+        ddo.template = '<img class="img-responsive center-block" ng-src="{{url}}" alt="{{titulo}}">';    
+
+        return ddo;
+    });
 
 /* ddo = direct directive object */
 /* AE  = Attribute Element. diretiva pode ser usada tanto como atributo ou como elemento, adicionando em nosso DDO a propriedade *restrict com valor "AE" */
