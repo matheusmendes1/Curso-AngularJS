@@ -28,6 +28,13 @@ angular
                 controller: 'FotoController'
             });    
 
+        /* Rota para Edição de Fotos */
+        $routeProvider
+        .when('/fotos/edit/:fotoId', {
+            templateUrl: 'partials/foto.html',
+            controller: 'FotoController'
+        }); 
+
         /* Caso o user digite uma rota inexistente */
         $routeProvider
             .otherwise({ redirectTo: '/fotos' });   
