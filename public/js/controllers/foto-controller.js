@@ -1,45 +1,61 @@
-angular.module('alurapic').controller('FotoController', function($scope, $http, $routeParams) {
+angular
+    .module('alurapic')
+    .controller('FotoController', function($scope, $routeParams, recursoFotos) {
 
-    $scope.foto = {};
-    $scope.mensagem = '';
+        $scope.foto = {};
+        $scope.mensagem = '';
 
-    if($routeParams.fotoId) {
-        $http
-            .get(`v1/fotos/${$routeParams.fotoId}`)
-            .success( (foto) => {
-                $scope.foto = foto;
-            })
-            .error( (error) => {
+        if($routeParams.fotoId) {
+            recursoFotos.get(
+                {fotoId: $routeParams.fotoId}, 
+            (foto) => {
+                $scope.foto = foto; 
+            }, 
+            (erro) => {
                 console.log(erro);
-                $scope.mensagem = 'Não foi posível obter a foto';
-            })
-    }
+                $scope.mensagem = 'Não foi possível obter a foto'
+            });
+        }
 
-    $scope.submeter = () => {
+        $scope.submeter = () => {
 
-        if($scope.formulario.$valid){
-            if($scope.foto._id){
-                $http
-                    .put(`v1/fotos/${$scope.foto._id}`, $scope.foto)
-                    .success( () => {
-                        $scope.mensagem = `A foto ${$scope.foto.titulo} foi alterada com sucesso`;
-                    })
-                    .error( (erro) => {
-                        console.log(erro);
-                        $scope.mensagem = `Não foi possível alterar a foto ${$scope.foto.titulo}`;
-                    });
-            }else{
-                $http
-                    .post('v1/fotos', $scope.foto)
-                    .success( () => {
-                        $scope.foto = {};
-                        $scope.mensagem = 'foto incluída com sucesso';
-                    })
-                    .error( (erro) => {
-                        $scope.mensagem = 'não foi possível incluir a foto';
-                        console.log(erro);
-                    });
+            if($scope.formulario.$valid){
+                if($scope.foto._id){
+
+                    recursoFotos.update(
+                        {fotoId: $scope.foto._id},
+                        $scope.foto,
+                        () => {
+                            $scope.mensagem = `A foto ${$scope.foto.titulo} foi alterada com sucesso`;
+                        },
+                        () => {
+                            console.log(erro);
+                            $scope.mensagem = `Não foi possível alterar a foto ${$scope.foto.titulo}`;
+                        }
+                    );
+
+                    /*
+                    $http
+                        .put(`v1/fotos/${$scope.foto._id}`, $scope.foto)
+                        .success( () => {
+                            
+                        })
+                        .error( (erro) => {
+
+                        });
+                    */
+                }else{
+                    recursoFotos.save(
+                        $scope.foto, 
+                        () => {
+                            $scope.foto = {};
+                            $scope.mensagem = 'Foto cadastrada com sucesso';
+                        }, 
+                        (erro) => {
+                            console.log(erro);
+                            $scope.mensagem = 'Não foi possível cadastrar a foto';
+                        });
+                }
             }
         }
-    }
-});
+    });

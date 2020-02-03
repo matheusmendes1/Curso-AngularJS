@@ -15,12 +15,16 @@
         <script src="js/lib/angular.min.js"></script>
         <script src="js/lib/angular-animate.min.js"></script>
         <script src="js/lib/angular-route.min.js"></script>
+        <script src="js/lib/angular-resource.min.js"></script>
 
         <script src="js/main.js"></script>
         <script src="js/controllers/fotos-controller.js"></script>
         <script src="js/controllers/foto-controller.js"></script>
         <script src="js/controllers/grupos-controller.js"></script>
+
         <script src="js/directives/minhas-diretivas.js"></script>
+
+        <script src="js/services/meus-servicos.js"></script>
     </head>
 
     <body>
@@ -64,4 +68,9 @@
         É a partir do objeto implícito que representa nosso formulário que temos acesso a todos os elementos de entrada, contanto que eles também possuam o atributo name devidamente preenchido.
         Supondo que tenhamos um formulário com o name vendas, podemos em nossos controllers testar se ele é válido ou inválido através das propriedades $scope.vendas.$valid e $scope.vendas.$invalid, respectivamente.
         É possível combinar a diretiva ng-disabled com o status de válido ou inválido do formulário, para desabilitar um botão caso o formulário esteja inválido.
+-->
+
+<!-- 
+    Uma das grandes vantagens de se utilizar o $resource é que ele provê um alto nível de abstração em relação ao seu similar $http, 
+    facilitando quando estamos trabalhando com um back-end RESTful. 
 -->
